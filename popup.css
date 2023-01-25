@@ -1,0 +1,85 @@
+:root {
+    --bg: #ffe4f8;
+    --white: #ffffff;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+background-color: var(--bg);
+}
+.box{
+    text-align: left;
+    position: absolute;
+    height: 50%;
+    width: 50%;
+    white-space: nowrap;
+    font-size: 0;
+    text-align: center;
+}
+
+#container {
+    text-align: left;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    white-space: nowrap;
+    font-size: 0;
+    text-align: center;
+}
+
+.valign-child {
+    height: 100%;
+}
+
+.valign {
+    /* re-set the font-size */
+}
+
+.valign-child, .valign {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+#box1{
+    left: 0;
+    top: 0;
+    background: radial-gradient(circle at bottom right, transparent 25%, var(--bg) 0px);
+}
+
+#box2 {
+    right: 0;
+    top: 0;
+    background: radial-gradient(circle at bottom left, transparent 25%, var(--bg) 0px);
+}
+
+#box3 {
+    left: 0;
+    bottom: 0;
+    background: radial-gradient(circle at top right, transparent 25%, var(--bg) 0px);
+}
+
+#box4 {
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at top left, transparent 25%, var(--bg) 0px);
+}
+
+#box5{
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    /* border: solid red 1px; */
+
+}
+
+.icons{
+    font-size: 1.2rem;
+    z-index: 1000;
+    cursor: pointer;
+}
