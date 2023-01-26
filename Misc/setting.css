@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100px;
+}
+
+html{
+}
+
+
+#title {
+    width: 100%;
+    border: none;
+    padding: 0% 5%;
+    font-size: 15vw;
+    height: 50px;
+    font-weight: bold;
+    
+}
+
+input:focus {
+    outline: none;
+}
+
+
+.btn {
+    font-size: 18vw;
+    padding: 3%;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+}
+
+i {
+    justify-content: center;
+    margin: auto;
+    cursor: pointer;
+}
+
+i:hover {
+    transition: all .3s ease-in-out;
+    color: rgb(223, 180, 40);
+}
+
+#info-div {
+    width: 200px;
+    border-top: 1px solid;
+    border-image: linear-gradient(to right, #ff8f8f, #ffffff) 1 0 0 0;
+    padding: 3%;
+}
+
+
+.setting-section{
+    width: 100%;
+    margin-bottom: 3%;
+}
+.section-heading{
+    width: auto;
+
+}
+.section-icon{
+    margin-left: 5px;
+}
+.section-input{
+    width: 94vw;
+        border: none;
+}
+i{
+    width: 1.2vw;
+}
+
+#token-input {
+
+    padding: 3vw 2vw;
+    background: #c7c7c777;
+}
+
+input:focus {
+    outline: none;
+}
+
+.radio-input{
+    width: 10vw;
+}
+
+#save-btn{
+    width:94vw;
+    padding:3vw;
+    border-radius: 5vw;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    background-image: linear-gradient(to right, #fbc2eb 0%, #a6c1ee 51%, #fbc2eb 100%);
+    flex: 1 1 auto;
+}
+
+#save-btn:hover{
+    transition: all .3s ease-in-out;
+        background-image: linear-gradient(to right, #da7ec0 0%, #a6c1ee 51%, #da7ec0 100%);
+}

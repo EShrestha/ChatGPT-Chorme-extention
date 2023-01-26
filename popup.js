@@ -22,6 +22,8 @@ const openAnimate = () => {
 let box1 = document.getElementById("box1");
 let box2 = document.getElementById("box2");
 let box3 = document.getElementById("box3");
+let box4 = document.getElementById("box4");
+let box5 = document.getElementById("box5");
 
 box1.addEventListener('click', () => {
     console.log("clicked 1");
@@ -36,4 +38,14 @@ box2.addEventListener('click', () => {
 box3.addEventListener('click', () => {
     console.log("clicked 3");
     window.location.pathname = "./Mode/image.html";
+});
+
+
+box4.addEventListener('click', () => {
+    console.log("clicked 4");
+    chrome.tabs.create({"url":"https://www.buymeacoffee.com/Airdik", "pinned":true},()=>{})
+});
+box5.addEventListener('click', () => {
+    console.log("clicked 5");
+    window.location.pathname = "./Misc/setting.html";
 });
