@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100px;
+    height: 50px;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+}
+
+.container>div {
+    flex: 1;
+    /*grow*/
+}
+
+#prompt-input{
+    width: 100%;
+    border: none;
+    padding: 0% 2%;
+    font-size: 3vw;
+}
+input:focus {
+    outline: none;
+}
+
+
+.btn{
+    font-size: 6vw;
+    padding: 1%;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+}
+i{
+    justify-content: center;
+    margin: auto;
+    cursor: pointer;
+}
+
+i:hover {
+    transition: all .3s ease-in-out;
+    color:rgb(223, 180, 40);
+}
+
+#output-div{
+    height: 1px;
+    width: 1px;
+    display:none;
+    background: green;
+}

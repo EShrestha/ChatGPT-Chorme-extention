@@ -16,3 +16,11 @@ const openAnimate = () => {
     document.getElementsByTagName("html")[0].style.width="100px";
     document.getElementsByTagName("html")[0].style.height="100px";
 }
+
+
+let box1 = document.getElementById("box1");
+box1.addEventListener('click', () => {
+    console.log("clicked 1");
+    window.location.pathname = "./Text/text.html";
+});
+
