@@ -28,14 +28,24 @@ const openAnimate = () => {
 const restoreSettings = () => {
     chrome.storage.sync.get(["token"]).then((result) => {
         console.log("Value currently is " + result.token);
+        if(result.token)
+            tokenInput.value = result.token;
     });
 
     chrome.storage.sync.get(["creativity"]).then((result) => {
         console.log("Value currently is " + result.creativity);
+        if (result.creativity)
+            creativityInput.value = (result.creativity * 10);
     });
 
     chrome.storage.sync.get(["size"]).then((result) => {
-        console.log("Value currently is " + result.size);
+        let radioElement = document.getElementsByName("size");
+        for(i = 0; i < radioElement.length; i++) {
+            if (radioElement[i].value === result.size) {
+                radioElement[i].checked = true;
+                break;
+            }
+        }
     });
 }
 

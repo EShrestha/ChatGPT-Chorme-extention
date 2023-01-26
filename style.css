@@ -23,3 +23,11 @@ textarea::-webkit-scrollbar:hover {
 ::placeholder {
     opacity: .7;
 }
+
+.loading {
+    background-color: #ffffff00;
+    background-image: url("https://www.nbrren.com/_ui/desktop/common/images/ui/ARG_spinner.gif");
+    background-size: 30px 30px;
+    background-position: right center;
+    background-repeat: no-repeat;
+}

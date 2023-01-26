@@ -12,6 +12,7 @@
     border: none;
     padding: 0% 2%;
     font-size: 3vw;
+    padding-right: 35px;
 }
 input:focus {
     outline: none;
@@ -33,11 +34,18 @@ i{
 
 i:hover {
     transition: all .3s ease-in-out;
-    color:rgb(223, 180, 40);
+    color:#23bb62;
 }
 
 #output-div{
     height: 0px;
     width: 0px;
     display:none;
+    overflow-y: scroll;
+    border-top: 1px solid;
+    border-image: linear-gradient(to right, #ff8f8f, #ffffff) 1 0 0 0;
+    padding:1.5vw;
+    font-size: 2.2vw;
+    outline: none;
+    resize: none;
 }

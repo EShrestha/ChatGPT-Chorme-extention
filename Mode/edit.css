@@ -37,7 +37,7 @@ i {
 
 i:hover {
     transition: all .3s ease-in-out;
-    color: rgb(223, 180, 40);
+    color: #23bb62;
 }
 
 textarea {
