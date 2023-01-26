@@ -1,0 +1,55 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100px;
+    height: 50px;
+}
+
+
+
+
+#prompt-input {
+    width: 100%;
+    border: none;
+    padding: 0% 2%;
+    font-size: 3vw;
+}
+
+input:focus {
+    outline: none;
+}
+
+
+.btn {
+    font-size: 6vw;
+    padding: 1%;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+}
+
+i {
+    justify-content: center;
+    margin: auto;
+    cursor: pointer;
+}
+
+i:hover {
+    transition: all .3s ease-in-out;
+    color: rgb(223, 180, 40);
+}
+
+textarea {
+    font-size: 2vw;
+    border: none;
+    margin: 0;
+    padding: 2%;
+    outline: none;
+    width: 600px;
+    height: 100px;
+    resize: none;
+    border-top: 1px solid;
+    border-image: linear-gradient(to right, #ff8f8f, #ffffff) 1 0 0 0;
+    
+}

@@ -1,0 +1,25 @@
+textarea::-webkit-scrollbar {
+    width: 3px;
+}
+
+/* textarea::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+} */
+textarea::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgb(90, 90, 90);
+    /* outline: 1px solid slategrey; */
+}
+
+
+textarea::-webkit-scrollbar-thumb:hover {
+    cursor: pointer;
+}
+
+textarea::-webkit-scrollbar:hover {
+    cursor: pointer;
+}
+
+::placeholder {
+    opacity: .7;
+}

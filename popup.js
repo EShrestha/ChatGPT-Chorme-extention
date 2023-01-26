@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     console.log("Opened popup.")
-    openAnimate();
+    document.getElementsByTagName("html")[0].style.width="100px";
+    document.getElementsByTagName("html")[0].style.height="100px";
 });
 
 const openAnimate = () => {
@@ -19,8 +20,20 @@ const openAnimate = () => {
 
 
 let box1 = document.getElementById("box1");
+let box2 = document.getElementById("box2");
+let box3 = document.getElementById("box3");
+
 box1.addEventListener('click', () => {
     console.log("clicked 1");
-    window.location.pathname = "./Text/text.html";
+    window.location.pathname = "./Mode/text.html";
 });
 
+box2.addEventListener('click', () => {
+    console.log("clicked 2");
+    window.location.pathname = "./Mode/edit.html";
+});
+
+box3.addEventListener('click', () => {
+    console.log("clicked 3");
+    window.location.pathname = "./Mode/image.html";
+});

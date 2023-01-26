@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="./edit.css" rel="stylesheet" type="text/css">
+    <link href="../style.css" rel="stylesheet" type="text/css">
+
+    <title>Edit Text</title>
+</head>
+
+<body>
+    <div style="width: 700px;">
+
+        <div style="float: left; width: 500px;">
+            <input id="prompt-input" placeholder="Describe what to do with the text below...">
+        </div>
+
+        <i title="Edit text" style="float: left; width: 50px;" id="send-btn" class="fa fa-chevron-circle-up btn"
+            aria-hidden="true"></i>
+        <i title="Back to homepage" style="float: left; width: 50px;" id="back-btn"
+            class="fa fa-chevron-circle-left btn" aria-hidden="true"></i>
+
+
+        <br style="clear: left;" />
+
+
+        <textarea id="textarea" placeholder="Enter text here you would like me to change based on your prompt above"></textarea>
+    </div>
+
+</body>
+<script src="./edit.js"></script>
+
+</html>

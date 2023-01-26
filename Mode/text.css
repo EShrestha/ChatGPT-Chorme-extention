@@ -6,15 +6,6 @@
     height: 50px;
 }
 
-.container {
-    width: 100%;
-    display: flex;
-}
-
-.container>div {
-    flex: 1;
-    /*grow*/
-}
 
 #prompt-input{
     width: 100%;
@@ -46,7 +37,7 @@ i:hover {
 }
 
 #output-div{
-    height: 1px;
-    width: 1px;
+    height: 0px;
+    width: 0px;
     display:none;
 }
