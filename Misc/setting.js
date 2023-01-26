@@ -26,9 +26,17 @@ const openAnimate = () => {
 }
 
 const restoreSettings = () => {
-    chrome.storage.local.get(["_token"]).then((result) => {console.log("Value currently is " + result.key);});
-    chrome.storage.local.get(["_creativity"]).then((result) => {console.log("Value currently is " + result.key);});
-    chrome.storage.local.get(["_size"]).then((result) => {console.log("Value currently is " + result.key);});
+    chrome.storage.sync.get(["token"]).then((result) => {
+        console.log("Value currently is " + result.token);
+    });
+
+    chrome.storage.sync.get(["creativity"]).then((result) => {
+        console.log("Value currently is " + result.creativity);
+    });
+
+    chrome.storage.sync.get(["size"]).then((result) => {
+        console.log("Value currently is " + result.size);
+    });
 }
 
 
@@ -69,12 +77,10 @@ saveBtn.addEventListener('click', (e) => {
         }
     }
     
-    chrome.storage.local.set({ "_token": token }).then(() => { console.log("SAVED: ",token)});
-    chrome.storage.local.set({ "_creativity": creativity }).then(() => {});
-    chrome.storage.local.set({ "_size": size }).then(() => {});
-    
-    
-    console.log("Saving "  + creativity)
+    chrome.storage.sync.set({ "token": token }).then(() => {});
+    chrome.storage.sync.set({ "creativity": creativity }).then(() => {});
+    chrome.storage.sync.set({ "size": size }).then(() => { });
+
 })
 
 

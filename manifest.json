@@ -25,5 +25,26 @@
       "default_title": "GeePeeTee",
       "default_popup": "popup.html"
     },
+
+    "commands": {
+        "_execute_action": {
+            "suggested_key": {
+                "default": "Ctrl+Period",
+                "mac": "Command+Period"
+            }
+        },
+
+        "openText":{
+            "suggested_key": {
+                "default":"Ctrl+Shift+Q",
+                "windows": "Ctrl+Shift+Q",
+                "mac": "Command+Z",
+                "chromeos": "Ctrl+Z",
+                "linux": "Ctrl+Z"
+            },
+            "description": "Open Text page"
+        }
+    },
+
     "manifest_version": 3
 }
