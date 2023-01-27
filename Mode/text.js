@@ -36,8 +36,7 @@ const openOutput = () => {
     }, 100);
 }
 
-let x;
-sendBtn.addEventListener('click', async () => {
+const sendRequest = async() => {
     let valid = true;
     let token = "";
     let creativity = "";
@@ -76,7 +75,7 @@ sendBtn.addEventListener('click', async () => {
             .then((res) => res.json())
             .then((data) => {
                 console.log("Success:", data)
-
+                promptInput.select();
                 promptInput.classList.remove("loading");
                 outputDiv.innerText = data.choices[0].text.replace(/^\s*|\s*$/g, "");;
                 openOutput();
@@ -94,10 +93,13 @@ sendBtn.addEventListener('click', async () => {
         openOutput();
         outputDiv.value = `Uh oh!\nPlease make sure your prompt is valid (more than 10 characters),\nor that you have a valid bearer token saved in Settings.`
     }
-    
 
+}
 
-})
+let x;
+sendBtn.addEventListener('click', async () => {
+    sendRequest();
+});
 
 backBtn.addEventListener('click', () => {
     chrome.storage.sync.set({ "backFromPage": true }).then(() => { });
@@ -123,6 +125,11 @@ backBtn.addEventListener('click', () => {
 });
 
 
+promptInput.addEventListener("keyup", (e) => {
+    if (e.key === "Enter") {
+        sendRequest();
+    }
+})
 
 
 

@@ -21,6 +21,8 @@ const openAnimate = () => {
 }
 
 
+
+
 sendBtn.addEventListener('click', () => {
     
 })
