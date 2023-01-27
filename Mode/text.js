@@ -100,6 +100,8 @@ sendBtn.addEventListener('click', async () => {
 })
 
 backBtn.addEventListener('click', () => {
+    chrome.storage.sync.set({ "backFromPage": true }).then(() => { });
+
     console.log("Back!");
     console.log("Animate ran.")
     document.getElementsByTagName("html")[0].style.transition =

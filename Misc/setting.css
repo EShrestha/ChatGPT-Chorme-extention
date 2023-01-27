@@ -36,7 +36,7 @@ i {
 
 i:hover {
     transition: all .3s ease-in-out;
-    color: rgb(255, 145, 117);
+    color: rgb(223, 77, 40);
 }
 
 #info-div {
@@ -61,6 +61,12 @@ i:hover {
 .section-input{
     width: 94vw;
         border: none;
+}
+.section-title{
+    width: 100%;
+}
+.section-paragraph{
+    width: 100%;
 }
 i{
     width: 1.2vw;

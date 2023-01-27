@@ -26,6 +26,7 @@ sendBtn.addEventListener('click', () => {
 })
 
 backBtn.addEventListener('click', () => {
+    chrome.storage.sync.set({ "backFromPage": true }).then(() => { });
     
     
     setTimeout(() => {
