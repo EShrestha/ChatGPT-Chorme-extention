@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     width: 100px;
+    user-select: none;
 }
 
 #title {
@@ -95,6 +96,7 @@ input:focus {
     text-transform: uppercase;
     background-image: linear-gradient(to right, #fbc2eb 0%, #a6c1ee 51%, #fbc2eb 100%);
     flex: 1 1 auto;
+    margin-top: 5px;
 }
 
 #save-btn:hover{

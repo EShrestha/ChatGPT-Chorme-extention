@@ -6,7 +6,6 @@ const promptInput = document.getElementById("prompt-input");
 
 
 const openAnimate = () => {
-    console.log("Animate ran.")
     document.getElementsByTagName("html")[0].style.transition =
     `width 250ms ease-in,
     height 250ms ease-in
@@ -39,9 +38,7 @@ const openOutput = () => {
 const sendRequest = async() => {
     let valid = true;
     let token = "";
-    let creativity = "";
-
-    console.log("Before:", valid, token, creativity)
+    let creativity = "1";
 
     await chrome.storage.sync.get(["token"]).then((result) => {
         if (result.token && result.token.trim() != "") {
@@ -74,7 +71,6 @@ const sendRequest = async() => {
         })
             .then((res) => res.json())
             .then((data) => {
-                console.log("Success:", data)
                 promptInput.select();
                 promptInput.classList.remove("loading");
                 outputDiv.innerText = data.choices[0].text.replace(/^\s*|\s*$/g, "");;
@@ -86,8 +82,7 @@ const sendRequest = async() => {
             .catch((error) => {
                 promptInput.classList.remove("loading");
                 openOutput();
-                outputDiv.value = `Uh oh!\nPlease make sure your prompt is valid (more than 10 characters),\nor that you have a valid bearer token saved in Settings.`
-                console.error("Error:", error)
+                outputDiv.value = `Uh oh!\nPlease make sure your prompt is valid (more than 10 characters),\nor that you have a valid bearer token saved in Settings.`;
             });
     } else {
         openOutput();
@@ -96,7 +91,6 @@ const sendRequest = async() => {
 
 }
 
-let x;
 sendBtn.addEventListener('click', async () => {
     sendRequest();
 });
@@ -104,8 +98,7 @@ sendBtn.addEventListener('click', async () => {
 backBtn.addEventListener('click', () => {
     chrome.storage.sync.set({ "backFromPage": true }).then(() => { });
 
-    console.log("Back!");
-    console.log("Animate ran.")
+
     document.getElementsByTagName("html")[0].style.transition =
     `width 250ms ease-in,
     height 250ms ease-in
@@ -137,7 +130,6 @@ promptInput.addEventListener("keyup", (e) => {
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("Opened text.")
     openAnimate();
 });
 

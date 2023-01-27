@@ -11,7 +11,6 @@ const saveBtn = document.getElementById("save-btn")
 
 
 const openAnimate = () => {
-    console.log("Animate ran.")
     document.getElementsByTagName("html")[0].style.transition =
     `width 250ms ease-in,
     height 250ms ease-in
@@ -27,13 +26,11 @@ const openAnimate = () => {
 
 const restoreSettings = () => {
     chrome.storage.sync.get(["token"]).then((result) => {
-        console.log("Value currently is " + result.token);
         if(result.token)
             tokenInput.value = result.token;
     });
 
     chrome.storage.sync.get(["creativity"]).then((result) => {
-        console.log("Value currently is " + result.creativity);
         if (result.creativity)
             creativityInput.value = (result.creativity * 10);
     });
@@ -66,8 +63,6 @@ const restoreSettings = () => {
 
 backBtn.addEventListener('click', () => {
     chrome.storage.sync.set({ "backFromPage": true }).then(() => { });
-    console.log("Back!");
-    console.log("Animate ran.")
     document.getElementsByTagName("html")[0].style.transition =
     `width 250ms ease-in,
     height 250ms ease-in
@@ -85,7 +80,6 @@ backBtn.addEventListener('click', () => {
 });
 
 tokenIcon.addEventListener('click', () => {
-    console.log("clicked 4");
     chrome.tabs.create({"url":"https://beta.openai.com/account/api-keys"},()=>{})
 });
 
@@ -116,7 +110,7 @@ saveBtn.addEventListener('click', (e) => {
     chrome.storage.sync.set({ "size": size }).then(() => { });
 
     //Default page
-    chrome.storage.sync.set({ "page": defaultPage }).then(() => { console.log("Saved::", defaultPage) });
+    chrome.storage.sync.set({ "page": defaultPage }).then(() => { });
     chrome.storage.sync.set({ "backFromPage": false }).then(() => { });
     
 
@@ -129,7 +123,6 @@ saveBtn.addEventListener('click', (e) => {
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("Opened settings.")
     openAnimate();
     restoreSettings();
 });
