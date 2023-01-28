@@ -1,5 +1,5 @@
 {
-  "name": "GeePeeTee - OpenAI ChatGPT and Dall-E powered text and image assistant",
+  "name": "GeePeeTee - OpenAi ChatGPT + Image assistant",
   "version": "1.2.0",
   "description": "Create text completions/edits, and generate images easily with a prompt.",
   "permissions": ["storage", "tabs"],
