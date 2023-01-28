@@ -50,6 +50,6 @@ textarea {
     height: 100px;
     resize: none;
     border-top: 1px solid;
-    border-image: linear-gradient(to right, #ff8f8f, #ffffff) 1 0 0 0;
+    border-image: linear-gradient(to right, #000000, #ffffff) 1 0 0 0;
     
 }

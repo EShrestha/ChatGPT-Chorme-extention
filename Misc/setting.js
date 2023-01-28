@@ -18,7 +18,7 @@ const openAnimate = () => {
     
     setTimeout(() => {
         // Animate expand of popup to these units
-        document.getElementsByTagName("html")[0].style.width="200px";
+        document.getElementsByTagName("html")[0].style.width="275px";
         document.getElementsByTagName("html")[0].style.height="250px";
         
     }, 100);

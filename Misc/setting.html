@@ -14,9 +14,9 @@
 </head>
 
 <body>
-    <div style="width: 200px;">
+    <div id="content-holder" style="width: 275px;">
 
-        <div id="title" style="float: left; width: 150px;">
+        <div id="title" style="float: left; width: 225px;">
             Settings
         </div>
 
@@ -29,20 +29,20 @@
 
         <div id="info-div">
             <div class="setting-section">
-                <div class="section-heading"><h3 class="section-title">Bearer Token<i id="token-icon" class="fa fa-info-circle section-icon" aria-hidden="true"></i></h3></div>
+                <div title="Get your token at https://beta.openai.com/account/api-keys" class="section-heading"><h3 class="section-title">Bearer Token<i id="token-icon" class="fa fa-info-circle section-icon" aria-hidden="true"></i></h3></div>
                 <input class="section-input" id="token-input" placeholder="Paste token here">
             </div>
 
             <div class="setting-section">
                 <div class="section-heading">
-                    <h3 class="section-title" title="More creative = model takes more risks to come up with an answer">Ai Creativity</h3>
+                    <h3 class="section-title" title="More creative = model takes more risks to come up with an answer, which could be less correct then when not as creative">Ai Creativity</h3>
                 </div>
                 <input class="section-input" type="range" min="0" max="9" value="9" class="slider" id="creativity-input">
             </div>
 
             <div class="setting-section">
                 <div class="section-heading">
-                    <h3 class="section-title" title="What image size the model generates">Image Size
+                    <h3 class="section-title" title="Size of the image the model will generate">Image Size
                     </h3>
                 </div>
                 <input class="radio-input" id="smallimg-input" type="radio" value="256" name="size">256x256<br>
@@ -52,10 +52,10 @@
 
             <div class="setting-section">
                 <div class="section-heading">
-                    <h3 class="section-title" title="What will open when extention is opened (default is homepage)">Default Page
+                    <h3 class="section-title" title="Which page is displayed when extension is opened (default is homepage)">Default Page
                     </h3>
                 </div>
-                <input class="radio-input" id="home-page-input" type="radio" value="home" name="default-page" checked="checked">Homepage<br>
+                <input class="radio-input" id="home-page-input" type="radio" value="home" name="default-page" checked="checked">Home<br>
                 <input class="radio-input" id="text-page-input" type="radio" value="text" name="default-page">Text<br>
                 <input class="radio-input" id="edit-page-input" type="radio" value="edit" name="default-page">Edit<br>
                 <input class="radio-input" id="image-page-input" type="radio" value="image" name="default-page">Image
@@ -66,7 +66,7 @@
                     <h3 class="section-title">Extension shortcut
                     </h3>
                 </div>
-                <p class="section-paragraph"><kbd>Ctrl</kbd>+<kbd>.</kbd> to open/close</p>
+                <p class="section-paragraph"><kbd>Ctrl</kbd>+<kbd>Space</kbd> to open/close</p>
             </div>
 
             <div class="setting-section">

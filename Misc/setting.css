@@ -6,12 +6,12 @@
     user-select: none;
 }
 
+
 #title {
     width: 100%;
     border: none;
-    padding: 0% 5%;
-    font-size: 15vw;
-    height: 50px;
+    padding: 2% 5%;
+    font-size: 10vw;
     font-weight: bold;
     
 }
@@ -22,11 +22,11 @@ input:focus {
 
 
 .btn {
-    font-size: 18vw;
     padding: 3%;
     text-align: center;
     justify-content: center;
     display: flex;
+    font-size: 10vw;
 }
 
 i {
@@ -41,10 +41,13 @@ i:hover {
 }
 
 #info-div {
-    width: 200px;
+    width: 275px;
     border-top: 1px solid;
     border-image: linear-gradient(to right, #ff8f8f, #ffffff) 1 0 0 0;
     padding: 3%;
+
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 
@@ -69,9 +72,6 @@ i:hover {
 .section-paragraph{
     width: 100%;
 }
-i{
-    width: 1.2vw;
-}
 
 #token-input {
 
@@ -92,14 +92,15 @@ input:focus {
     padding:3vw;
     border-radius: 5vw;
     font-weight: bold;
+    color:white;
     cursor: pointer;
     text-transform: uppercase;
-    background-image: linear-gradient(to right, #fbc2eb 0%, #a6c1ee 51%, #fbc2eb 100%);
+    background:#949494;
     flex: 1 1 auto;
     margin-top: 5px;
 }
 
 #save-btn:hover{
     transition: all .3s ease-in-out;
-        background-image: linear-gradient(to right, #da7ec0 0%, #a6c1ee 51%, #da7ec0 100%);
+    background: #646464;
 }

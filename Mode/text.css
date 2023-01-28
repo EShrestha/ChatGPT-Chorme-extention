@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     width: 100px;
-    height: 50px;
+    height: fit-content;
 }
 
 
@@ -12,7 +12,8 @@
     border: none;
     padding: 0% 2%;
     font-size: 3vw;
-    padding-right: 35px;
+    padding-right: 45px;
+    height: 50px;
 }
 input:focus {
     outline: none;
@@ -38,14 +39,14 @@ i:hover {
 }
 
 #output-div{
-    height: 0px;
     width: 0px;
     display:none;
     overflow-y: scroll;
     border-top: 1px solid;
-    border-image: linear-gradient(to right, #ff8f8f, #ffffff) 1 0 0 0;
+    border-image: linear-gradient(to right, #000000, #ffffff) 1 0 0 0;
     padding:1.5vw;
     font-size: 2.2vw;
     outline: none;
     resize: none;
+    max-height: 450px;
 }

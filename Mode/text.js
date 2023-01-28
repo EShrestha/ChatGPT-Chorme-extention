@@ -14,7 +14,6 @@ const openAnimate = () => {
     setTimeout(() => {
         // Animate expand of popup to these units
         document.getElementsByTagName("html")[0].style.width="600px";
-        document.getElementsByTagName("html")[0].style.height="50px";
         
     }, 100);
     promptInput.focus();
@@ -22,6 +21,7 @@ const openAnimate = () => {
 }
 
 const openOutput = () => {
+    outputDiv.style.height = '50px';
     outputDiv.style.transition =
     `width 250ms ease-in,
     height 250ms ease-in
@@ -30,9 +30,13 @@ const openOutput = () => {
     setTimeout(() => {
         // Animate expand of popup to these units
         outputDiv.style.width="600px";
-        outputDiv.style.height="100px";
+        
         
     }, 100);
+    setTimeout(() => {
+        outputDiv.style.height = outputDiv.scrollHeight+5 + 'px';
+        
+    }, 300);
 }
 
 const sendRequest = async() => {
@@ -53,7 +57,7 @@ const sendRequest = async() => {
     });
 
 
-    if (valid && promptInput.value.length > 10) {
+    if (valid && promptInput.value.trim().length > 0) {
 
         promptInput.classList.add("loading");
         fetch('https://api.openai.com/v1/completions', {
@@ -66,14 +70,16 @@ const sendRequest = async() => {
                 'model': 'text-davinci-003',
                 'prompt': promptInput.value,
                 'temperature': creativity,
-                'max_tokens': 1024
+                'max_tokens': 2048
             })
         })
             .then((res) => res.json())
             .then((data) => {
+                console.log(data)
                 promptInput.select();
                 promptInput.classList.remove("loading");
-                outputDiv.innerText = data.choices[0].text.replace(/^\s*|\s*$/g, "");;
+                let cleanFront = data.choices[0].text.trim().substring(0,4).replace(/\\n/g," ")
+                outputDiv.value = cleanFront + data.choices[0].text.trim().substring(4).trim();
                 openOutput();
                 
 
@@ -82,11 +88,11 @@ const sendRequest = async() => {
             .catch((error) => {
                 promptInput.classList.remove("loading");
                 openOutput();
-                outputDiv.value = `Uh oh!\nPlease make sure your prompt is valid (more than 10 characters),\nor that you have a valid bearer token saved in Settings.`;
+                outputDiv.value = `Uh oh!\nPlease make sure your prompt is appropriate,\nor that you have a valid bearer token saved in Settings.`;
             });
     } else {
         openOutput();
-        outputDiv.value = `Uh oh!\nPlease make sure your prompt is valid (more than 10 characters),\nor that you have a valid bearer token saved in Settings.`
+        outputDiv.value = `Uh oh!\nPlease make sure your prompt is appropriate,\nor that you have a valid bearer token saved in Settings.`
     }
 
 }

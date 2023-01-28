@@ -13,11 +13,26 @@ const openAnimate = () => {
     setTimeout(() => {
         // Animate expand of popup to these units
         document.getElementsByTagName("html")[0].style.width="600px";
-        document.getElementsByTagName("html")[0].style.height="70px";
+        document.getElementsByTagName("html")[0].style.height="50px";
         
     }, 100);
     promptInput.focus();
 }
+
+const openOutput = () => {
+    textarea.style.transition =
+    `width 250ms ease-in,
+    height 250ms ease-in
+    `;
+    textarea.style.display = "block";
+    setTimeout(() => {
+        // Animate expand of popup to these units
+        textarea.style.width="600px";
+        textarea.style.height="100px";
+        
+    }, 100);
+}
+
 
 const sendRequest = async() => {
         let valid = true;
@@ -34,11 +49,13 @@ const sendRequest = async() => {
     });
 
     await chrome.storage.sync.get(["size"]).then((result) => {
-        size = result.size;
+        if (size) {
+            size = result.size;
+        }
     });
 
 
-    if (valid && promptInput.value.length > 10 ) {
+    if (valid && promptInput.value.trim().length > 0 ) {
 
         promptInput.classList.add("loading");
         fetch('https://api.openai.com/v1/images/generations', {
@@ -56,20 +73,24 @@ const sendRequest = async() => {
             .then((data) => {
                 promptInput.select();
                 promptInput.classList.remove("loading");
-                textarea.value = data.data[0].url.replace(/^\s*|\s*$/g, "");;
+                console.log(data);
+                let link = data.data[0].url.replace(/^\s*|\s*$/g, "");
+                chrome.tabs.create({"url":`${link}`, },()=>{})
                 
 
 
             })
             .catch((error) => {
                 promptInput.classList.remove("loading");
+                openOutput();
                 textarea.value = "";
-                textarea.placeholder = `Uh oh!\nPlease make sure your prompt is valid (more than 10 characters),\nor that you have a valid bearer token saved in Settings.`
+                textarea.placeholder = `Uh oh!\nPlease make sure your prompt is appropriate,\nor that you have a valid bearer token saved in Settings.`
                 console.error("Error:", error)
             });
     } else {
+        openOutput();
         textarea.value = "";
-        textarea.placeholder = `Uh oh!\nPlease make sure your prompt is valid (more than 10 characters),\nor that you have a valid bearer token saved in Settings.`
+        textarea.placeholder = `Uh oh!\nPlease make sure your prompt is appropriate,\nor that you have a valid bearer token saved in Settings.`
     }
 
 }

@@ -37,7 +37,7 @@ const sendRequest = async() => {
     });
 
 
-    if (valid && promptInput.value.length > 10 && textarea.value.length > 10) {
+    if (valid && promptInput.value.trim().length > 0 && textarea.value.trim().length > 0) {
 
         promptInput.classList.add("loading");
         fetch('https://api.openai.com/v1/edits', {
@@ -55,23 +55,22 @@ const sendRequest = async() => {
         })
             .then((res) => res.json())
             .then((data) => {
-                console.log("Success:", data)
+                console.log(data)
                 promptInput.classList.remove("loading");
                 promptInput.select();
-                textarea.value = data.choices[0].text.replace(/^\s*|\s*$/g, "");;
-                
+                textarea.value = data.choices[0].text.trim();
 
 
             })
             .catch((error) => {
                 promptInput.classList.remove("loading");
                 textarea.value = "";
-                textarea.placeholder = `Uh oh!\nPlease make sure your prompt is valid (more than 10 characters),\nor that you have a valid bearer token saved in Settings.`
+                textarea.placeholder = `Uh oh!\nPlease make sure your prompt is appropriate and your text to edit is valid,\nor that you have a valid bearer token saved in Settings.`
                 console.error("Error:", error)
             });
     } else {
         textarea.value = "";
-        textarea.placeholder = `Uh oh!\nPlease make sure your prompt is valid (more than 10 characters),\nor that you have a valid bearer token saved in Settings.`
+        textarea.placeholder = `Uh oh!\nPlease make sure your prompt is appropriate and your text to edit is valid,\nor that you have a valid bearer token saved in Settings.`
     }
 
 }
