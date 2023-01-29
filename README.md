@@ -1,4 +1,4 @@
-# Downoload
+# Download
 [Downolad extension here](https://chrome.google.com/webstore/detail/geepeetee/dbegpdaninkikfcfodenceojbpdgdoaa)
 
 # ChatGPT-Chorme-extention
