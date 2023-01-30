@@ -39,7 +39,8 @@ const openOutput = () => {
     }, 300);
 }
 
-const sendRequest = async() => {
+const sendRequest = async () => {
+    if (promptInput.value.trim().length == 0) { return; }
     let valid = true;
     let token = "";
     let creativity = "1";
@@ -58,7 +59,7 @@ const sendRequest = async() => {
 
 
     if (valid && promptInput.value.trim().length > 0) {
-
+        if (promptInput.value.trim().length < 10) { openOutput(); outputDiv.value = `*Caution*\nShort prompts are not recommended as the response can be unexpected\nbut let's see what the AI comes up with!`}
         promptInput.classList.add("loading");
         fetch('https://api.openai.com/v1/completions', {
             method: 'POST',
@@ -79,7 +80,7 @@ const sendRequest = async() => {
                 promptInput.select();
                 promptInput.classList.remove("loading");
                 let cleanFront = data.choices[0].text.trim().substring(0,4).replace(/\\n/g," ")
-                outputDiv.value = cleanFront + data.choices[0].text.trim().substring(4).trim();
+                outputDiv.value = cleanFront + data.choices[0].text.trim().substring(4).trimEnd();
                 openOutput();
                 
 
@@ -88,11 +89,11 @@ const sendRequest = async() => {
             .catch((error) => {
                 promptInput.classList.remove("loading");
                 openOutput();
-                outputDiv.value = `Uh oh!\nPlease make sure your prompt is appropriate,\nor that you have a valid bearer token saved in Settings.`;
+                outputDiv.value = `Uh oh!\nPlease make sure your prompt is appropriate,\nor that you have a valid bearer token saved in Settings.\n\nGet your barer token from:\nbeta.openai.com/account/api-keys`;
             });
     } else {
         openOutput();
-        outputDiv.value = `Uh oh!\nPlease make sure your prompt is appropriate,\nor that you have a valid bearer token saved in Settings.`
+        outputDiv.value = `Uh oh!\nPlease make sure your prompt is appropriate,\nor that you have a valid bearer token saved in Settings.\n\nGet your barer token from:\nbeta.openai.com/account/api-keys`
     }
 
 }

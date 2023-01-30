@@ -18,7 +18,8 @@ const openAnimate = () => {
     promptInput.focus();
 }
 
-const sendRequest = async() => {
+const sendRequest = async () => {
+    if (promptInput.value.trim().length == 0 || textarea.value.trim().length == 0) { return; }
     let valid = true;
     let token = "";
     let creativity = "1";
@@ -38,7 +39,10 @@ const sendRequest = async() => {
 
 
     if (valid && promptInput.value.trim().length > 0 && textarea.value.trim().length > 0) {
+        let value = textarea.value;
+        if (promptInput.value.trim().length < 10 || textarea.value.trim().length < 10) { textarea.value = `*Caution*\nShort prompts are not recommended as the response can be unexpected\nbut let's see what the AI comes up with!`}
 
+        
         promptInput.classList.add("loading");
         fetch('https://api.openai.com/v1/edits', {
             method: 'POST',
@@ -49,7 +53,7 @@ const sendRequest = async() => {
             body: JSON.stringify({
                 'model': 'text-davinci-edit-001',
                 'temperature': creativity,
-                'input': `${textarea.value}`,
+                'input': `${value}`,
                 'instruction': `${promptInput.value}`
             })
         })
@@ -65,12 +69,12 @@ const sendRequest = async() => {
             .catch((error) => {
                 promptInput.classList.remove("loading");
                 textarea.value = "";
-                textarea.placeholder = `Uh oh!\nPlease make sure your prompt is appropriate and your text to edit is valid,\nor that you have a valid bearer token saved in Settings.`
+                textarea.placeholder = `Uh oh!\nPlease make sure your prompt is appropriate and your text to edit is valid,\nor that you have a valid bearer token saved in Settings.\n\nGet your barer token from:\nbeta.openai.com/account/api-keys`
                 console.error("Error:", error)
             });
     } else {
         textarea.value = "";
-        textarea.placeholder = `Uh oh!\nPlease make sure your prompt is appropriate and your text to edit is valid,\nor that you have a valid bearer token saved in Settings.`
+        textarea.placeholder = `Uh oh!\nPlease make sure your prompt is appropriate and your text to edit is valid,\nor that you have a valid bearer token saved in Settings.\n\nGet your barer token from:\nbeta.openai.com/account/api-keys`
     }
 
 }

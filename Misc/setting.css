@@ -86,21 +86,3 @@ input:focus {
 .radio-input{
     width: 10vw;
 }
-
-#save-btn{
-    width:94vw;
-    padding:3vw;
-    border-radius: 5vw;
-    font-weight: bold;
-    color:white;
-    cursor: pointer;
-    text-transform: uppercase;
-    background:#949494;
-    flex: 1 1 auto;
-    margin-top: 5px;
-}
-
-#save-btn:hover{
-    transition: all .3s ease-in-out;
-    background: #646464;
-}

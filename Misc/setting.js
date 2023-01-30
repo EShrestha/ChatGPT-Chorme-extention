@@ -6,7 +6,6 @@ const creativityInput = document.getElementById("creativity-input");
 const smallImgInput = document.getElementById("small-img-input");
 const mediumImgInput = document.getElementById("medium-img-input");
 const largeImgInput = document.getElementById("large-img-input");
-const saveBtn = document.getElementById("save-btn")
 
 
 
@@ -84,40 +83,19 @@ tokenIcon.addEventListener('click', () => {
 });
 
 
-saveBtn.addEventListener('click', (e) => {
-    let token = tokenInput.value;
-    let creativity = (creativityInput.value / 10);
-    let size = "";
 
-    let defaultPage = "home"
-    
-    let radioElement = document.getElementsByName("size");
-    for(i = 0; i < radioElement.length; i++) {
-        if (radioElement[i].checked) {
-            size = radioElement[i].value;
-        }
+tokenInput.addEventListener('change', () => {
+    let token = tokenInput.value.trim();
+    if (tokenInput.value.trim().length > 0) {
+        chrome.storage.sync.set({ "token": token }).then(() => {});
     }
-
-    let radioPageElement = document.getElementsByName("default-page");
-    for(i = 0; i < radioPageElement.length; i++) {
-        if (radioPageElement[i].checked) {
-            defaultPage = radioPageElement[i].value;
-        }
-    }
-    
-    chrome.storage.sync.set({ "token": token }).then(() => {});
-    chrome.storage.sync.set({ "creativity": creativity }).then(() => {});
-    chrome.storage.sync.set({ "size": size }).then(() => { });
-
-    //Default page
-    chrome.storage.sync.set({ "page": defaultPage }).then(() => { });
-    chrome.storage.sync.set({ "backFromPage": false }).then(() => { });
-    
-
 })
 
 
-
+creativityInput.addEventListener('change', () => {
+    let creativity = (creativityInput.value / 10);
+    chrome.storage.sync.set({ "creativity": creativity }).then(() => {});
+})
 
 
 
@@ -125,4 +103,15 @@ saveBtn.addEventListener('click', (e) => {
 document.addEventListener("DOMContentLoaded", () => {
     openAnimate();
     restoreSettings();
+    var sizeRadios = document.querySelectorAll('input[type=radio][name="size"]');
+    sizeRadios.forEach(radio => radio.addEventListener('change', () => {
+    chrome.storage.sync.set({ "size": radio.value }).then(() => { });
+
+    }));
+
+    var pageRadio = document.querySelectorAll('input[type=radio][name="default-page"]');
+    pageRadio.forEach(radio => radio.addEventListener('change', () => {
+        chrome.storage.sync.set({ "page": radio.value }).then(() => { });
+
+    }));
 });

@@ -35,7 +35,9 @@ const openOutput = () => {
 
 
 const sendRequest = async() => {
-        let valid = true;
+    if (promptInput.value.trim().length == 0) { return; }
+
+    let valid = true;
     let token = "";
     let size = "512";
 
@@ -56,6 +58,7 @@ const sendRequest = async() => {
 
 
     if (valid && promptInput.value.trim().length > 0 ) {
+        if (promptInput.value.trim().length < 10) { openOutput(); textarea.value = `*Caution*\nShort prompts are not recommended as the response can be unexpected\nbut let's see what the AI comes up with!`}
 
         promptInput.classList.add("loading");
         fetch('https://api.openai.com/v1/images/generations', {
@@ -84,13 +87,13 @@ const sendRequest = async() => {
                 promptInput.classList.remove("loading");
                 openOutput();
                 textarea.value = "";
-                textarea.placeholder = `Uh oh!\nPlease make sure your prompt is appropriate,\nor that you have a valid bearer token saved in Settings.`
+                textarea.placeholder = `Uh oh!\nPlease make sure your prompt is appropriate,\nor that you have a valid bearer token saved in Settings.\n\nGet your barer token from:\nbeta.openai.com/account/api-keys`
                 console.error("Error:", error)
             });
     } else {
         openOutput();
         textarea.value = "";
-        textarea.placeholder = `Uh oh!\nPlease make sure your prompt is appropriate,\nor that you have a valid bearer token saved in Settings.`
+        textarea.placeholder = `Uh oh!\nPlease make sure your prompt is appropriate,\nor that you have a valid bearer token saved in Settings.\n\nGet your barer token from:\nbeta.openai.com/account/api-keys`
     }
 
 }
