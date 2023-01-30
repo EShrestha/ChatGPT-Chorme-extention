@@ -51,7 +51,9 @@ const sendRequest = async() => {
     });
 
     await chrome.storage.sync.get(["size"]).then((result) => {
-        if (size) {
+        console.log("SIZE:", result.size)
+        if (typeof (result.size) != "undefined" && result.size) {
+            console.log("in here")
             size = result.size;
         }
     });

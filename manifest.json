@@ -1,6 +1,6 @@
 {
   "name": "GeePeeTee - OpenAi ChatGPT + Image assistant",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Create text completions/edits, and generate images easily with a prompt.",
   "permissions": ["storage", "tabs"],
   "host_permissions": ["http://*/*"],
